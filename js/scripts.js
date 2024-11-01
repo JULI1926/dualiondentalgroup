@@ -48,3 +48,13 @@ window.addEventListener('DOMContentLoaded', event => {
     });
 
 });
+
+// Reiniciar el carrusel cuando llegue al final
+$('#carouselExampleIndicators').on('slid.bs.carousel', function () {
+    var $this = $(this);
+    if ($('.carousel-item:last').hasClass('active')) {
+        setTimeout(function () {
+            $this.carousel(0);
+        }, 2000); // Ajusta el tiempo de espera si es necesario
+    }
+});
